@@ -1,0 +1,25 @@
+<div class="modal-header">
+<h3 class="modal-title" id="modal-title">Add Woking</h3>
+</div>
+<div class="modal-body" id="modal-body">
+   	<form class="form-add-emp" name="formAddWorking">
+        	 <div class="form-horizontal">
+               <div class="row">
+               	 <input type="hidden" class="form-control form-add" ng-model="workform.id">
+				  
+				  <div class="col-md-6 form-group">
+					  <label class="label-txt">Date</label>
+					  <input type="date" class="form-control form-add" ng-model="workform.date" required>
+				  </div>
+				  <div class="col-md-6 form-group">
+					  <label class="label-txt">hour</label>
+					  <input type="number" class="form-control form-add" ng-model="workform.hour" required>
+				  </div>
+		       </div>
+           </div>  
+   </form>
+</div>
+<div class="modal-footer">
+	 <button type="button" class="btn btn-default btn-add" ng-click="cancelWorkingModal()">Cancel</button>
+	 <button class="btn btn-default btn-add" ng-click="submitWorking()">Submit</button>                
+</div>

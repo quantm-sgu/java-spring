@@ -1,0 +1,73 @@
+<div class="container-fluid" >
+	 <div class="row">
+	   <div class="col-md-12" >
+	      <a ng-click=""><i style="float: right; margin: 15px 20px;" class="fas fa-trash-alt"></i></a>
+	   	  <a data-toggle="modal" ng-click=""><i style="float: right; margin: 15px 20px;" class="fas fa-edit"></i></a>	
+	   </div>
+	</div>
+ </div>
+ <hr />
+ <div class="container-fluid">
+ 	<div class="row">
+ 		<div>
+ 		</div>
+ 		<div class="col-md-3" style="text-align: center;">
+ 			<img src="https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg" class="img-rounded" alt="Cinque Terre" width="320" height="400"> 
+ 			<br />
+ 			<br />
+ 			<span class="badge" style="background:blue">Name: {{workingEmp.name}}</span>
+ 			<span class="badge" style="background:#808080">Age:{{workingEmp.age}}</span>			
+ 			<br />
+ 			<span class="badge" style="background:#CCCC00">Sex: {{workingEmp.sex}}</span>
+ 		</div>
+ 		<div class="col-md-9">
+ 			<nav class="navbar nav-css">
+			    <ul class="nav navbar-nav">
+			      <li ><a ng-href="#!/employee/detailinfo/{{idparam}}">INFORMATIONS</a></li>
+			      <li class="active" ><a ng-href="#!/employee/detailworking/{{idparam}}">WORKING</a></li>
+			      <li><a ng-href="#!/employee/detailadvance/{{idparam}}">ADVANCES</a></li>
+			    </ul>
+			</nav>
+			<br/>
+			
+			
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10">
+						<h1>WORKING</h1>
+					</div>
+					<div class="col-md-2">
+						<a style="float: right; margin-right: 50px; line-height: 80px;" ><i class="fas fa-plus-circle"></i></a>
+					</div>
+				</div>
+				<hr style="margin-top:0px"/>
+				<br/>
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table table-striped">
+			                <thead>
+			                  <tr>
+			                    <th>No</th>
+			                    <th>Date</th>
+			                    <th>Hour</th>
+			                    <th>Option</th>
+			                  </tr>
+			                </thead>
+			                <tbody>
+			                  <tr ng-repeat="work in workingEmp.listWork">
+			                    <td>{{$index+1}}</td>
+			                    <td>{{work.date | date:'yyyy-MM-dd'}}</td>
+			                    <td>{{work.hour}}</td>
+			                    <td>
+			                      <a ng-click=""><i class="fas fa-trash-alt"></i></a>
+			                   </td>
+			                  </tr>
+			                </tbody>
+			              </table>
+					</div>
+				</div>
+			</div>
+				
+ 		</div>
+ 	</div>
+ </div>

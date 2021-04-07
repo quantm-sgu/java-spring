@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="col-md-4">
+	   <p>Total {{employees.length}} Employee</p>
+	</div>
+	<div class="col-md-4">
+	   <form name="formSearch">
+	      <div class="input-group">
+	        <span style="background-color: white;" class="input-group-addon">
+	         <a ng-click="searchByName()"><i class="fad fa-search"></i></a>
+	        </span>
+	        <input ng-model="searchEmpl.keyword" id="msg" type="text" class="form-control" name="msg" placeholder="Search employee by name">
+	      </div>
+	    </form>
+	</div>
+	<div class="col-md-4"></div>
+</div>

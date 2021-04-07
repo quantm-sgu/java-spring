@@ -1,0 +1,56 @@
+<div class="container-fluid">
+	<div class="row">
+	   <div class="col-md-12" >
+	   	  <a data-toggle="modal" ng-click="showPopupAddTeam(teamentity)"><i style="float: right; margin: 15px 20px;" class="fas fa-plus-circle"></i></a>	
+	   </div>
+	</div>
+ </div>
+ <div class="container-fluid">
+    <hr/>
+    <div class="row">
+    	<div class="col-md-4">
+    		<p>Total {{listteam.length}} teams</p>
+             <hr/>
+             <table class="table table-striped">
+                <thead>
+                  <tr>
+                     <th>No</th>
+                    <th>Name Team</th>
+                    <th>Detail</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="team in listteam">
+                    <td>{{index + 1}}</td>
+                    <td>{{team.name}}</td>
+                    <td><a ng-click="detailTeam(team.id)"><i class="fal fa-address-card"></i></a></td>
+                  </tr>
+                </tbody>
+              </table>
+    	</div>
+    	<div class="col-md-8">
+    		<p>Employee {{teamDetail.name}} - Total {{teamDetail.userteam.length}} employee</p>
+             <hr/>
+             <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Sex</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat = "item in teamDetail.userteam">
+                    <td>{{index+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.phone}}</td>
+                    <td>{{item.address}}</td>
+                    <td>{{item.sex}}</td>
+                  </tr>
+                </tbody>
+              </table>
+    	</div>
+    </div>
+</div>

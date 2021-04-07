@@ -1,0 +1,64 @@
+.form-add-emp{
+  width: 60%;
+  margin: 60px auto;
+  text-align: center;
+}
+.form-add{
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.label-txt {
+  top: -1.6em;
+  padding: 10px;
+  color: rgb(120,120,120);
+  transition: ease .3s;
+}
+.btn-add{
+  display: inline-block;
+  padding: 12px 24px;
+  background: rgb(220,220,220);
+  font-weight: bold;
+  color: rgb(120,120,120);
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: ease .3s;
+}
+.nav-css{
+	margin-bottom: 0px;
+}
+.nav-css>ul>li{
+	width:200px;
+	text-align: center;
+	border-bottom: 1px solid #eee;
+}
+
+.nav-css>ul>li>a{
+	color: blue;
+}
+.nav-css>ul>li>a:hover {
+	background-color: white;
+    color: black;
+}
+.nav-css>ul>li.active{
+	back-ground-color: white;
+	border-top : 1px solid #eee;
+	border-left:1px solid #eee;
+	border-right: 1px solid #eee;
+	border-bottom: none;
+}
+
+.information {
+	width: auto; 
+	height: 40px;
+	border:1px solid #eee;
+}
+.information>p{
+	line-height: 40px;
+	margin-left: 20px;
+}
+

@@ -1,0 +1,20 @@
+<div class="modal-header">
+<h3 class="modal-title" id="modal-title">Add new Team</h3>
+</div>
+<div class="modal-body" id="modal-body">
+   	<form class="form-add-emp" name="formAddTeam">
+        	 <div class="form-horizontal">
+               <div class="row">
+               	 <input type="hidden" class="form-control form-add" ng-model="teamForm.id">
+				  <div class="col-md-12 form-group">
+					  <label class="label-txt">Name team</label>
+					  <input type="text" class="form-control form-add" ng-model="teamForm.name" required>
+				  </div>  
+		       </div>
+           </div>  
+   </form>
+</div>
+<div class="modal-footer">
+	 <button type="button" class="btn btn-default btn-add" ng-click="cancelTeamModal()">Cancel</button>
+	 <button class="btn btn-default btn-add" ng-click="submitTeam()">Submit</button>                
+</div>

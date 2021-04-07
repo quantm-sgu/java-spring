@@ -1,0 +1,13 @@
+<div class="container-fluid">
+	<div class="row">
+	   <div class="col-md-12" >
+	      <a ng-click="confirmDeleteMulti(employees)"><i style="float: right; margin: 15px 20px;" class="fas fa-trash-alt"></i></a>
+	   	  <a data-toggle="modal" ng-click="showPopup(employeeEntity)"><i style="float: right; margin: 15px 20px;" class="fas fa-plus-circle"></i></a>	
+	   </div>
+	</div>
+    </div>
+    <hr/>
+	<div ng-include="'views/employees/search.html'"  style="padding-top: 15px;" class="container-fluid"></div>
+	<!-- List users -->
+	<div ng-include="'views/employees/list.html'" style="padding-top: 15px;" class="container-fluid"></div>
+</div>

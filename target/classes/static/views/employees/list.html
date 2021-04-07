@@ -1,0 +1,92 @@
+
+       <div class="row">
+          <div class="col-md-12">
+             <p>Search result</p>
+             <br/>
+             <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th><input type="checkbox" class="form-check-input" id="exampleCheck1" disabled /></th>
+                    <th>No</th>
+                    <th>FullName</th>
+                    <th>phone</th>
+                    <th>Team</th>
+                    <th>Option</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat = "employee in employees">
+                    <td> <input type="checkbox" class="form-check-input" ng-model="employee.isCheck" /></td>
+                    <td>{{$index+1}}</td>
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.phone}}</td>
+                    <td>{{employee.teamId}}</td>
+                    <td>
+                      <a ng-href="#!/employee/detailinfo/{{employee.id}}"><i class="fas fa-info-circle"></i> </a>
+                      <a ng-click="confirmActionDialog(employee)"><i class="fas fa-trash-alt"></i></a>
+                   </td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <nav style="float: right; padding-right: 200px;" aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li ng-repeat="page in numPages" 
+                       class="page-item" ng-class="{active : isSelected(page)}"
+                   >
+                  	<a class="page-link" ng-click="clickChangePage(page+1)">{{page +1}}</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+          </div>
+       </div>
+       
+	<!-- modal delete one -->
+    <div id="confirmation-dialog">
+      <div class="modal fade confirmation-dialog" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <h1>Are you sure delete employee</h1>
+              <p>Will be delete employee </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+              <button type="button" class="btn btn-primary"  
+              ng-repeat="button in confirmActionDialogConfig.buttons"
+              ng-click="executeDialogAction(button.action, button.data)" >Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>       
+    
+    <!-- modal delete multi -->
+    <div id="confirmation-deletemulti">
+      <div class="modal fade confirmation-dialog" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <h1>Are you sure delete all {{numEmpDel}} employee selected</h1>
+              <p>Will be delete employee </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+              <button type="button" class="btn btn-primary"  
+              ng-click="executeActionDeleteMulti('deleteMulti', employees)" >Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>       
+    

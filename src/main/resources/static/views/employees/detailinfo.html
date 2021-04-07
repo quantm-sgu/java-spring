@@ -1,0 +1,189 @@
+ <div class="container-fluid">
+ <div class="row">
+   <div class="col-md-12" >
+      <!--  <a ng-click=""><i style="float: right; margin: 15px 20px;" class="fas fa-trash-alt"></i></a>-->
+   	  <a data-toggle="modal" ng-click="showEditPopup(emplEdit)"><i style="float: right; margin: 15px 20px;" class="fas fa-edit"></i></a>	
+   </div>
+</div>
+ </div>
+ <hr />
+ <div class="container-fluid">
+ 	<div class="row">
+ 		
+ 		<div class="col-md-3" style="text-align: center;">
+ 			<img src="https://png.pngtree.com/png-clipart/20190924/original/pngtree-user-vector-avatar-png-image_4830521.jpg" class="img-rounded" alt="Cinque Terre" width="320" height="400"> 
+ 			<br />
+ 			<br />
+ 			<span class="badge" style="background:blue">Name: {{inforemployee.name}}</span>
+ 			<span class="badge" style="background:#808080">Age:{{inforemployee.age}}</span>			
+ 			<br />
+ 			<span class="badge" style="background:#CCCC00">Sex: {{inforemployee.sex}}</span>
+ 		</div>
+ 		<div class="col-md-9">
+ 			<nav class="navbar nav-css">
+			    <ul class="nav navbar-nav">
+			      <li ng-class="{active : isShowInfo}"><a ng-click="clickInfo()">INFORMATIONS</a></li>
+			      <li ng-class="{active : isShowWorking}"><a ng-click="clickWorking()">WORKING</a></li>
+			      <li ng-class="{active : isShowAdvance}"><a ng-click="clickAdvance()">ADVANCES</a></li>
+			      <li ng-class="{active : isShowStatis}"><a ng-click="clickStatis()">STATISTICS</a></li>
+			    </ul>
+			</nav>
+			<br/>
+			<!-- info -->
+			<div class="container" ng-show="isShowInfo">
+				<div class="row">
+					<div class="col-md-10">
+						<h1>INFORMATION</h1>
+					</div>
+				</div>
+				<hr style="margin-top:0px"/>
+				<br/>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="information">
+							<p>Start date: {{inforemployee.startdate | date:'yyyy-MM-dd'}}<p>
+						</div>
+						<br/>
+						<br/>
+						<div class="information">
+							<p>Address: {{inforemployee.address}}</p>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="information">
+							<p>Team: {{inforemployee.teamId}}<p>
+						</div>
+						<br/>
+						<br/>
+						<div class="information">
+							<p>Sallary per hour: {{inforemployee.hour}}$</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- working -->
+			<div class="container" ng-show="isShowWorking">
+				<div class="row">
+					<div class="col-md-10">
+						<h1>WORKING</h1>
+					</div>
+					<div class="col-md-2">
+						<a ng-click="showPopupAddWork(workEntity)" style="float: right; margin-right: 50px; line-height: 80px;" ><i class="fas fa-plus-circle"></i></a>
+					</div>
+				</div>
+				<hr style="margin-top:0px"/>
+				<br/>
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table table-striped">
+			                <thead>
+			                  <tr>
+			                    <th>No</th>
+			                    <th>Date</th>
+			                    <th>Hour</th>
+			                    <th>Option</th>
+			                  </tr>
+			                </thead>
+			                <tbody>
+			                  <tr ng-repeat="work in workingEmp.listWork">
+			                    <td>{{$index+1}}</td>
+			                    <td>{{work.date | date:'yyyy-MM-dd'}}</td>
+			                    <td>{{work.hour}}</td>
+			                    <td>
+			                      <a ng-click=""><i class="fas fa-trash-alt"></i></a>
+			                   </td>
+			                  </tr>
+			                </tbody>
+			              </table>
+					</div>
+				</div>
+			</div>
+			<!-- /working -->
+			<!-- advance -->
+			<div class="container" ng-show="isShowAdvance">
+				<div class="row">
+					<div class="col-md-10">
+						<h1>ADVANCE</h1>
+					</div>
+					<div class="col-md-2">
+						<a ng-click="showPopupAddWork(workEntity)" style="float: right; margin-right: 50px; line-height: 80px;" ><i class="fas fa-plus-circle"></i></a>
+					</div>
+				</div>
+				<hr style="margin-top:0px"/>
+				<br/>
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table table-striped">
+			                <thead>
+			                  <tr>
+			                    <th>No</th>
+			                    <th>Date</th>
+			                    <th>Money</th>
+			                    <th>Option</th>
+			                  </tr>
+			                </thead>
+			                <tbody>
+			                  <tr ng-repeat="advance in advanceEmp.listWork">
+			                    <td>{{$index+1}}</td>
+			                    <td>{{advance.date | date:'yyyy-MM-dd'}}</td>
+			                    <td>{{advance.hour * advanceEmp.hour}}</td>
+			                    <td>
+			                      <a ng-click=""><i class="fas fa-trash-alt"></i></a>
+			                   </td>
+			                  </tr>
+			                </tbody>
+			              </table>
+					</div>
+				</div>
+			</div>
+			<!-- /advance -->
+			<!-- STATISTICS-->
+			<div class="container" ng-show="isShowStatis">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>STATISTICS</h1>
+					</div>
+					
+				</div>
+				<hr style="margin-top:0px"/>
+				<br/>
+				<div class="row">
+				    <div class="col-md-1">
+						<label style="color:black;" class="label-txt">Month</label>
+					    <select class="form-add" ng-model="statis.month">
+					      <option ng-repeat="i in numMonth" value="{{i}}">{{i}}
+					    </select>
+					</div>
+					<div class="col-md-2">
+						<label class="label-txt" style="color:black;">Year</label>
+					    <select class="form-add" ng-model="statis.year">
+					      <option ng-repeat="i in numYear" value="{{i}}">{{i}}
+					    </select>
+					</div>
+					<div class="col-md-1">
+						<button ng-click="searchStatis()" class="btn">Xem</button>
+					</div>
+					<div class="col-md-8">
+						<table class="table table-striped">
+			                <thead>
+			                  <tr>
+			                    <th>Date working</th>
+			                    <th>Total</th>
+			                  </tr>
+			                </thead>
+			                <tbody>
+			                  <tr ng-repeat="item in listStatisPerMonth">
+			                    <td>{{item.date  | date:'yyyy-MM-dd' }}</td>
+			                    <td>{{item.hour*inforemployee.hour}}</td>
+			                  </tr>
+			                </tbody>
+			              </table>
+					</div>
+				</div>
+			</div>
+			<!-- /STATISTICS-->
+ 		</div>
+ 	</div>
+ </div>
+ 
+ 
